@@ -13,25 +13,34 @@
 
     </head>
 
-    <body>
+    <body class="show-chatbot">
+
+        <button class="chatbot-toggler">
+            <span id="send-btn" class="material-symbols-outlined">mode_comment</span>
+            <span id="send-btn" class="material-symbols-outlined">close</span>
+        </button>
+
         <div class="chatbot">
             <header>
                 <h2>Chatbot</h2>
             </header>
-            <u1 class="chatbox">
-                <l1 class="chat incoming">
-                    <span class="material-symbols-outlined">smart_toy</span>
-                    <p>Hi there <br> How can I help you today?</p>
-                </l1>
 
-                <l1 class="chat outgoing">
+            <ul class="chatbox">
+                <li class="chat incoming">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <p>Hi there<br>How can I help you today?</p>
+                </li>
+
+                <li class="chat outgoing">
                     <p>Random Stuff For Now</p>
-                </l1>
-            </u1>
+                </li>
+            </ul>
+
             <div class="chat-input">
-                <textarea placeholder="Enter a message"></textarea>
+                <textarea placeholder="Enter A Message:" required></textarea>
                 <span id="send-btn" class="material-symbols-outlined">send</span>
             </div>
         </div>
+
     </body>
 </html>
