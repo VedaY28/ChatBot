@@ -88,7 +88,7 @@ body {
 .chatbot .chatbox {
   height: 350px;
   overflow-y: auto;
-  padding: 30px 20px 70px;
+  padding: 30px 20px 100px;
 }
 
 .chatbox .chat {
