@@ -61,6 +61,7 @@ const handleChat = () => {
     }, 600);
 }
 
+
 // chatInput.addEventListener("input", () => {
 //     chatInput.style = ${}
 // })
@@ -71,6 +72,7 @@ chatInput.addEventListener("keydown", (event) => {
         handleChat();
     }
 });
+
 
 sendChatBtn.addEventListener("click", handleChat);
 chatToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
