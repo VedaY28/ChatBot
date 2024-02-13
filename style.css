@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #fff2f2;
+    background: #d3c5e8;
 }
 
 .chatbot-toggler {
@@ -55,7 +55,7 @@ body {
   pointer-events: none;
   width: 420px;
   overflow: hidden;
-  background: #b2b0b0;
+  background: #d1c9c9;
   border-radius: 15px;
   transform-origin: bottom right;
   box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
@@ -153,6 +153,7 @@ body {
   width: 100%;
   border: none;
   outline: none;
+  max-height: 180px;
   font-size: 0.95rem;
   resize: none;
   padding: 16px 15px 16px 0;

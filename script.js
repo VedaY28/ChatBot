@@ -6,6 +6,7 @@ const chatCloseBtn = document.querySelector(".close-btn");
 
 let userMessage;
 const API_KEY = "";
+const inputInitHeight = chatInput.scrollHeight;
 
 const generateResponse = (incomingChatLi) => {
     const API_URL = "https://api.openai.com/v1/chat/completions";
@@ -25,8 +26,11 @@ const generateResponse = (incomingChatLi) => {
 
     //Sends POST request to OpenAI API
     fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
-        messageElement.textContent = data.choices[0].message.content;
+        // console.log(data);
+        messageElement.textContent = data.choices[0].message.content.trim();
     }).catch((error) => {
+        // console.log(error);
+        messageElement.classList.add("error");
         messageElement.textContent = "Opps! Something went wrong. Please Try Again!";
     }).finally(() =>  chatbox.scrollTo(0, chatbox.scrollHeight));
 }
@@ -48,13 +52,14 @@ const handleChat = () => {
     
     //After User Inputs it Clear the Textfield
     chatInput.value = "";
+    chatInput.style.height = `${inputInitHeight}px`;
 
     //Outputs the User's Message to Chatbox
     chatbox.appendChild(createChatLi(userMessage, "outgoing"));
     chatbox.scrollTo(0, chatbox.scrollHeight);
     
     setTimeout(() => {
-        const incomingChatLi = createChatLi(messageElement, "incoming");
+        const incomingChatLi = createChatLi("Thinking...", "incoming");
         chatbox.appendChild(incomingChatLi);
         chatbox.scrollTo(0, chatbox.scrollHeight);
         generateResponse(incomingChatLi);
@@ -62,9 +67,10 @@ const handleChat = () => {
 }
 
 
-// chatInput.addEventListener("input", () => {
-//     chatInput.style = ${}
-// })
+chatInput.addEventListener("input", () => {
+    chatInput.style.height = `${inputInitHeight}px`;
+    chatInput.style.height = `${chatInput.scrollHeight}px`;
+})
 
 chatInput.addEventListener("keydown", (event) => {
     if(event.key === 'Enter') {
